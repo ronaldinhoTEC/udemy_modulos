@@ -6,10 +6,10 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <h4 style="color: #202124   ">
+                    <!-- <h4 style="color: #202124   ">
                         Titulo: 
-                    </h4>
-                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=','True')]}" />
+                    </h4> -->
+                    <field name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=','True')]}" />
                     <group>
                         <group>
                             <field name="name"/>

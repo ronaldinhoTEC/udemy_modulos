@@ -10,6 +10,7 @@
                         Titulo: 
                     </h4> -->
                     <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=',True)]}" />
+                    <field name="image_1920"/>
                     <group>
                         <group>
                             <field name="name"/>
@@ -17,7 +18,7 @@
                         </group>
                         <group>
                             <field name="puntuacion"/>
-                            <field name="active"/>
+                            <field name="active" invisible="1"/>
                         </group>
                     </group>
                 </sheet>

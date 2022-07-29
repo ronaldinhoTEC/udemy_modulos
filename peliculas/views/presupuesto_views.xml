@@ -15,8 +15,7 @@
                             <h1 style="color: #202124; display: flex">
                                 <field name="name" placeholder="Nombre de la pelicula" default_focus="1" class="oe_inline"/>
                                 <field name="puntuacion" widget="percentpie" string=" " style="padding-left: 15px" class="oe_inline"/>
-                                <field name="puntuacion2" placeholder="Puntuacion de usuario" 
-                                        class="oe_edit_only oe_inline"/>
+                                <field name="puntuacion2" placeholder="Puntuacion de usuario" class="oe_edit_only oe_inline"/>
                             </h1>
                         </div>
                     </div>

@@ -12,4 +12,4 @@ class Presupuesto(models.Model):
     punctuacion = fields.Float(string='Puntuacion', digits=(2,1))
     active = fields.Boolean(string='Activo', default=True)
     # apellido = fields.Char(string='Apellido', required=True)
-    director_id = fields.Many2one(comodel_name='res.partner')
+    director_id = fields.Many2one('res.partner')

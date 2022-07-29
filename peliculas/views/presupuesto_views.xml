@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_presupuesto_form" model="ir.ui.view">
+        <field name="name">vista formulario de presupuesto</field>
+        <field name="model">presupuesto</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="" string="string">
+                    <group name="name" string="string">
+                        <field name="name"/>
+                        <field name="clasificacion"/>
+                    </group>
+                    <group name="name" string="string">
+                        <field name="puntuacion"/>
+                        <field name="active"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

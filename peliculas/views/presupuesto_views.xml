@@ -6,9 +6,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <h1 style="color: gold">
+                    <h4 style="color: #202124   ">
                         Titulo: 
-                    </h1>
+                    </h4>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=','True')]}">
+
+                    </widget>
                     <group>
                         <group>
                             <field name="name"/>

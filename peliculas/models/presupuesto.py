@@ -6,6 +6,7 @@ class Presupuesto(models.Model):
     
     _name = 'presupuesto'
     _description = 'Presupuesto de peliculas para alquiler'
+    _inherit = ['image.mixin']
     
     
     foto = fields.Binary(string="Foto")

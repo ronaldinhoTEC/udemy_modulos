@@ -9,9 +9,7 @@
                     <h4 style="color: #202124   ">
                         Titulo: 
                     </h4>
-                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=','True')]}">
-
-                    </widget>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=','True')]}" />
                     <group>
                         <group>
                             <field name="name"/>

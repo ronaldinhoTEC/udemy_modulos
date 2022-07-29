@@ -10,7 +10,7 @@
                         Titulo: 
                     </h4> -->
                     <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=',True)]}" />
-                    <field name="image_1920" widget="image"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="name"/>

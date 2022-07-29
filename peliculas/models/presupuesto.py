@@ -13,3 +13,6 @@ class Presupuesto(models.Model):
     active = fields.Boolean(string='Activo', default=True)
     # apellido = fields.Char(string='Apellido', required=True)
     director_id = fields.Many2one('res.partner')
+    genero_ids = fields.Many2many('genero')
+    
+    

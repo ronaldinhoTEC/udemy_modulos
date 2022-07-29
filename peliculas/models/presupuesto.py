@@ -12,7 +12,7 @@ class Presupuesto(models.Model):
     name = fields.Char(string='Pelicula', required=True)
     clasificacion = fields.Selection(selection=[('g','Publico General'),('PG','Mayores de 18 años'),('PG-13','Mayores de 13 años'),('R','Mayores de 17 años'),('NC-17','Mayores de 18 años'),('R','Se recomienda la compañia de un adulto')])
     fecha_estreno = fields.Date(string='Fecha de estreno')
-    punctuacion = fields.Float(string='Puntuacion', digits=(2,1))
+    puntuacion = fields.Float(string='Puntuacion', digits=(2,1))
     active = fields.Boolean(string='Activo', default=True)
     # apellido = fields.Char(string='Apellido', required=True)
     director_id = fields.Many2one('res.partner', string='Director', required=True)

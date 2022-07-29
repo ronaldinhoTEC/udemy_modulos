@@ -17,7 +17,7 @@ class Presupuesto(models.Model):
     # apellido = fields.Char(string='Apellido', required=True)
     director_id = fields.Many2one('res.partner', string='Director', required=True)
     genero_ids = fields.Many2many('genero',string='Generos')
-    vista_general = fields.Text(string='Vista general')  
+    vista_general = fields.Text(string='Descripcion')  
     link_trailer = fields.Char(string='Link del trailer')
     es_libro = fields.Boolean(string='Es libro', default=False)
     libro = fields.Binary(string='Libro')

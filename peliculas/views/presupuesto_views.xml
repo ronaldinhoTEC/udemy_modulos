@@ -5,15 +5,20 @@
         <field name="model">presupuesto</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
-                    <!-- <h4 style="color: #202124   ">
-                        Titulo: 
-                    </h4> -->
+                <sheet> 
                     <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=',True)]}" />
+                    <!-- Añadimos una imagen  -->
                     <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128', 'size': ['',128]}"/>
+                    <!-- Añadimos un titulo Grande -->
+                    <div class="oe_title">
+                        <div class="o_row">
+                            <h1 style="color: #202124">
+                                <field name="name" placeholder="Nombre de la pelicula"/>
+                            </h1>
+                        </div>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
                             <field name="clasificacion"/>
                         </group>
                         <group>

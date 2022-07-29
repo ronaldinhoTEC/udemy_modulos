@@ -6,5 +6,7 @@
     'author': 'Ronaldinho Farfan',
     'category': 'Peliculas',
     'description': """Este modulo le permite gestionar las peliculas que se alquilan en la tienda de videos de Ronaldinho Farfan""",
-    'data': []
+    'data': [
+        'views/menu.xml',
+    ]
 }

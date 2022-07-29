@@ -5,16 +5,18 @@
         <field name="model">presupuesto</field>
         <field name="arch" type="xml">
             <form>
-                <group name="" string="string">
-                    <group name="name" string="string">
-                        <field name="name"/>
-                        <field name="clasificacion"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="clasificacion"/>
+                        </group>
+                        <group>
+                            <field name="puntuacion"/>
+                            <field name="active"/>
+                        </group>
                     </group>
-                    <group name="name" string="string">
-                        <field name="puntuacion"/>
-                        <field name="active"/>
-                    </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>

@@ -32,11 +32,14 @@ class Presupuesto(models.Model):
   
     
     def aprobar_presupuesto(self):
+        """Esta funcion cambia el estado del presupuesto a aprobado, usar el self para acceder 
+            a los campos (selection) de la tabla presupuesto"""
         logger.info('============> Presupuesto Aprobado <============')
         self.state = 'aprobado'
         
     
     def cancelar_presupuesto(self):
+        """Esta funcion cambia el estado del presupuesto a cancelado"""
         logger.info('============> Presupuesto Cancelado <============')
         self.state = 'cancelado'
         

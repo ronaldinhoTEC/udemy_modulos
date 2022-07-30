@@ -22,7 +22,7 @@ class Presupuesto(models.Model):
     director_id = fields.Many2one('res.partner', string='Director', required=True)
     categoria_director_id = fields.Many2one('res.partner.category', string='Categoria del Director', default= lambda self: self.env['res.partner.category'].search([('name','=','Director')]))
     genero_ids = fields.Many2many('genero',string='Generos')
-    vista_general = fields.Text(string='Descripcion')  
+    vista_general = fields.Text(string='Descripcion de la peli')  
     link_trailer = fields.Char(string='Link del trailer')
     es_libro = fields.Boolean(string='Es libro', default=False)
     libro = fields.Binary(string='Libro')

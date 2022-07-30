@@ -33,7 +33,7 @@
                             <field name="genero_ids" widget="many2many_tags" style="display: flex;"/>
                         </div>
                     </div>
-                    <group string="Datos Principales" style="margin-top: -20px">
+                    <group string="Datos principales" style="margin-top: -20px">
                         <field name="vista_general" placeholder="Vista General"/>
                         <group string="">
                             <field name="director_id" options="{'no_create': True, 'no_open': True}" domain="[('category_id','in', [categoria_director_id])]"/>

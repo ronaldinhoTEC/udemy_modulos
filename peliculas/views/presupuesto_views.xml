@@ -31,7 +31,7 @@
                     <group string="Datos Principales" style="margin-top: -20px">
                         <field name="vista_general" placeholder="Vista General"/>
                         <group string="">
-                            <field name="director_id" domain="[('category_id','in', [categoria_director_id])]"/>
+                            <field name="director_id" options="{'no_create': True, 'no_open': True}" domain="[('category_id','in', [categoria_director_id])]"/>
                             <field name="categoria_director_id" invisible="1"/>
                             <field name="link_trailer" widget="url"/>
                         </group>

@@ -35,8 +35,9 @@
                             <field name="link_trailer"/>
                         </group>
                         <group string="">
-                            <field name="es_libro"/>
-                            <field name="libro" attrs="{'invisible': [('es_libro','=', False)]}"/>
+                            <field name="es_libro" widget="boolean_toggle"/>
+                            <field name="libro" filename="libro_filename" attrs="{'invisible': [('es_libro','=', False)]}"/>
+                            <field name="libro_filename" invisible=""/>
                         </group>
                         
                     </group>

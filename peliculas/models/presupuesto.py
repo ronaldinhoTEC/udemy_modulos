@@ -23,5 +23,6 @@ class Presupuesto(models.Model):
     link_trailer = fields.Char(string='Link del trailer')
     es_libro = fields.Boolean(string='Es libro', default=False)
     libro = fields.Binary(string='Libro')
+    libro_filename = fields.Char(string='Nombre del libro')
     
       

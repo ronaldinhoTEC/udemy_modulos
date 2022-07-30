@@ -19,9 +19,9 @@
                                 <field name="puntuacion2" placeholder="Puntuacion del usuario" class="oe_edit_only oe_inline"/>
                             </h1>
                         </div>
-                        <div class="o_row" >
+                        <div class="o_row" style="display: flex">
                             <field name="clasificacion"/>
-                            <span class="fa fa-circle" attrs="{'invisible': [('clasificacion','=', False), ('fecha_estreno','=', False)]}" />
+                            <span class="fa fa-circle" attrs="{'invisible': [('clasificacion','=', False), ('fecha_estreno','=', False)]}" style="font-size: 10px; margin: 0 10px 0 10px"/>
                             <field name="fecha_estreno"/>
                         </div>
                     </div>

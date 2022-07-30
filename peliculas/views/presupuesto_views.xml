@@ -37,7 +37,7 @@
                         <group string="">
                             <field name="es_libro" widget="boolean_toggle"/>
                             <field name="libro" filename="libro_filename" attrs="{'invisible': [('es_libro','=', False)]}"/>
-                            <field name="libro_filename" invisible=""/>
+                            <field name="libro_filename" invisible="1"/>
                         </group>
                         
                     </group>

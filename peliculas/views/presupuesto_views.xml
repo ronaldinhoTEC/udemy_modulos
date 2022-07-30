@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <group string="Datos principales" style="margin-top: -20px">
-                        <field name="vista_general" placeholder="Vista General"/>
+                        <field name="vista_general" placeholder="Descripcion General"/>
                         <group string="">
                             <field name="director_id" options="{'no_create': True, 'no_open': True}" domain="[('category_id','in', [categoria_director_id])]"/>
                             <field name="categoria_director_id" invisible="1"/>

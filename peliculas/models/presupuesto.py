@@ -35,7 +35,7 @@ class Presupuesto(models.Model):
     def aprobar_presupuesto(self):
         logger.info('info:  goodsaso Presupuesto aprovado')
         logger.warning('warning: good Presupuesto aprovado')
-        logger.error('error: Presupuesto aprovado')
+        logger.error('error: yasta XDDDD  gaaal Presupuesto aprovado')
         
     
     def cancelar_presupuesto(self):

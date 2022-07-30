@@ -36,6 +36,7 @@ class Presupuesto(models.Model):
             a los campos (selection) de la tabla presupuesto"""
         logger.info('============> Presupuesto Aprobado <============')
         self.state = 'aprobado'
+        self.fecha_aprobado = fields.Datetime.now()
         
     
     def cancelar_presupuesto(self):

@@ -29,7 +29,7 @@ class Presupuesto(models.Model):
     libro_filename = fields.Char(string='Nombre del libro')
     
     state = fields.Selection(selection=[('borrador','Borrador'),('aprobado','Aprobado'),('cancelado','Cancelado')], string='Estado', default='borrador', copy=False)
-  
+    fecha_aprobado = fields.Date(string='Fecha de aprobacion', copy=False)
     
     def aprobar_presupuesto(self):
         """Esta funcion cambia el estado del presupuesto a aprobado, usar el self para acceder 

@@ -6,6 +6,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button string="Aprobar" type="object" name="aprobar_presupuesto" class="oe_highlight"/>
+                    <button string="Cancelar" type="object" name="cancelar_presupuesto"/>
                     <field name="state" widget="statusbar" statusbar_visible="borrador,aprovado"/>
                 </header>
                 <sheet> 

@@ -28,4 +28,11 @@ class Presupuesto(models.Model):
     
     state = fields.Selection(selection=[('borrador','Borrador'),('aprovado','Aprovado'),('cancelado','Cancelado')], string='Estado', default='borrador', copy=False)
     
-      
+    
+    
+    def aprobar_presupuesto(self):
+        print('Presupuesto aprovado')
+    
+    def cancelar_presupuesto(self):
+        print('Presupuesto cancelado')
+        

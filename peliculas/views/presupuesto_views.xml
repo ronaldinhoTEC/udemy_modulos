@@ -36,7 +36,7 @@
                         </group>
                         <group string="">
                             <field name="es_libro"/>
-                            <field name="libro"/>
+                            <field name="libro" attrs="{'invisible': [('es_libro','=', False)]}"/>
                         </group>
                         
                     </group>

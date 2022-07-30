@@ -1,6 +1,8 @@
 # -*- coding utf-8 -*-
-import string
+import logging
 from odoo import   models, fields, api
+
+logger = logging.getLogger(__name__)
 
 class Presupuesto(models.Model):
     
@@ -31,8 +33,10 @@ class Presupuesto(models.Model):
     
     
     def aprobar_presupuesto(self):
-        print('Presupuesto aprovado')
+        logger.info('info: Presupuesto aprovado')
+        logger.warning('warning: Presupuesto aprovado')
+        logger.error('error: Presupuesto aprovado')
+        
     
     def cancelar_presupuesto(self):
-        print('Presupuesto cancelado')
-        
+        print('Presupuesto cancelado')        

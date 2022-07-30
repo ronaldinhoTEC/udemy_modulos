@@ -18,6 +18,7 @@ class Presupuesto(models.Model):
     active = fields.Boolean(string='Activo', default=True)
     # apellido = fields.Char(string='Apellido', required=True)
     director_id = fields.Many2one('res.partner', string='Director', required=True)
+    categoria_director_id = fields.Many2one('res.parter.category', string='Categoria del Director', default= lambda self: self.self.env['res.partner.category'].search([('name','=','Director')]))
     genero_ids = fields.Many2many('genero',string='Generos')
     vista_general = fields.Text(string='Descripcion')  
     link_trailer = fields.Char(string='Link del trailer')

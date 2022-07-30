@@ -25,9 +25,21 @@
                             <field name="fecha_estreno"/>
                         </div>
                         <div class="o_row">
-                            <field name="genero_ids" widget="many2many_tags" style="display: flex; border: 2px solid black !important"/>
+                            <field name="genero_ids" widget="many2many_tags" style="display: flex;"/>
                         </div>
                     </div>
+                    <group string="Datos Principales" style="margin-top: -20px">
+                        <field name="vista_general" placeholder="Vista General"/>
+                        <group string="">
+                            <field name="director_id"/>
+                            <field name="link_trailer"/>
+                        </group>
+                        <group string="">
+                            <field name="es_libro"/>
+                            <field name="libro"/>
+                        </group>
+                        
+                    </group>
                 </sheet>
             </form>
         </field>

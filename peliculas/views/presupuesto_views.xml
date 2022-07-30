@@ -24,7 +24,7 @@
                             <span class="fa fa-circle" attrs="{'invisible': [('clasificacion','=', False), ('fecha_estreno','=', False)]}" style="font-size: 10px; margin: 0 10px 0 10px"/>
                             <field name="fecha_estreno"/>
                         </div>
-                        <div class="o_rom">
+                        <div class="o_row">
                             <field name="genero_ids"/>
                         </div>
                     </div>

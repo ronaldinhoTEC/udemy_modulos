@@ -39,4 +39,4 @@ class Presupuesto(models.Model):
         
     
     def cancelar_presupuesto(self):
-        logger.info('info: Presupuesto cancelado'))        
+        logger.info('info: Presupuesto cancelado')      

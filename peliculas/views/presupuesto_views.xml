@@ -32,7 +32,7 @@
                         <field name="vista_general" placeholder="Vista General"/>
                         <group string="">
                             <field name="director_id"/>
-                            <field name="link_trailer"/>
+                            <field name="link_trailer" widget="url"/>
                         </group>
                         <group string="">
                             <field name="es_libro" widget="boolean_toggle"/>

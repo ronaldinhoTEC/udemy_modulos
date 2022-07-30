@@ -5,6 +5,9 @@
         <field name="model">presupuesto</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="borrador,aprovado"/>
+                </header>
                 <sheet> 
                     <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('active','=',True)]}" />
                     <!-- Añadimos una imagen  -->

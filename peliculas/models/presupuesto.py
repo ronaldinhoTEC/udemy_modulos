@@ -26,4 +26,6 @@ class Presupuesto(models.Model):
     libro = fields.Binary(string='Libro')
     libro_filename = fields.Char(string='Nombre del libro')
     
+    state = fields.Selection(selection=[('borrador','Borrador'),('aprovado','Aprovado'),('cancelado','Cancelado')], string='Estado', default='borrador', copy=False)
+    
       

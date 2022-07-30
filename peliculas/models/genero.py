@@ -6,4 +6,4 @@ class Genero(models.Model):
     _name = 'genero'
     _description = 'Genero de peliculas para alquiler'
 
-    
+    name = fields.Char(string='Genero', required=True)

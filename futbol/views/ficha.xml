@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_ficha_form" model="ir.ui.view">
+        <field name="name">Vista formulario de ficha </field>
+        <field name="model">ficha</field>
+        <field name="arch" type="xml">
+            <form string="Ficha">
+                <sheet string="Datos generales">
+                    <field name="name"/>
+                    <field name="apellido"/>
+                    <field name="nombre_deportivo"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="dni"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

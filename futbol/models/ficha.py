@@ -2,7 +2,7 @@ from odoo import   models, fields, api
 
 class Ficha(models.Model):
     
-    _name = 'fichajugador'
+    _name = 'ficha'
     _description = 'Clase para gestionar las fichas de los jugadores de futbol de la academia'
 
     name = fields.Char(string='Nombre', required=True)

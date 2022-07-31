@@ -8,7 +8,7 @@
 
     <menuitem id="menu_principal" name="Ficha"/>
     <menuitem id="jugador_menu" name="Jugador" parent="menu_principal"/>
-    <menuitem id="ficha_jugador" name="Ficha" parent="jugador_menu"/>
+    <menuitem id="ficha_jugador" name="Ficha jugador" parent="jugador_menu"/>
     <menuitem id="entrenador_menu" name="Entrenador" parent="menu_principal"/>
     <menuitem id="entrenamiento_entrenador" name="Entrenamiento" parent="entrenador_menu" action="action_open_ficha"/>   
 

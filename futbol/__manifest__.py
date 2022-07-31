@@ -6,7 +6,7 @@
     'category': 'Futbol',
     'description': """Este modulo es para gestionar el una academia y los equipos de futbol en particular, los jugadores  y los partidos de futbol""",
     'data': [
-        'views/menu.xml',
         'views/ficha.xml',
+        'views/menu.xml',
     ]
 }

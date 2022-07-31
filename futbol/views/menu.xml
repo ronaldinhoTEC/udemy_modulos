@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record id="action_open_ficha" model="ir.actions.ac_window">
+    <record id="action_open_ficha" model="ir.actions.act_window">
         <field name="name">Ficha</field>
         <field name="res_model">ficha</field>
         <field name="view_mode">tree,form</field>

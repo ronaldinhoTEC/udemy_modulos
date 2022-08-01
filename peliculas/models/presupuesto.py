@@ -1,7 +1,7 @@
 # -*- coding utf-8 -*-
 import logging
 from odoo import   models, fields, api
-
+from odoo.exceptions import UserError
 logger = logging.getLogger(__name__)
 
 class Presupuesto(models.Model):
@@ -49,9 +49,10 @@ class Presupuesto(models.Model):
         
         if self.state == 'cancelado':
             super(Presupuesto, self).unlink()
+            logger.info ('============> Presupuesto Eliminado <============')
         
         else:
-            raise models.ValidationError('No se puede eliminar un presupuesto que no este cancelado')           
+            raise UserError('No se puede eliminar un presupuesto que no este cancelado')           
           
               
               

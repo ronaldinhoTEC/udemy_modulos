@@ -5,18 +5,31 @@
         <field name="model">ficha.jugador</field>
         <field name="arch" type="xml">
             <form>
-                <sheet string="Datos generales del jugador">
-                    <group string="Datos Personales">
-                        <field name="name"/>
-                        <field name="apellido"/>
-                        <field name="nombre_deportivo"/>
-                        <field name="fecha_nacimiento"/>
-                        <field name="edad"/>
-                        <field name="dni"/>
+                <sheet>
+                    <group string="peronal">
+                        <group string="Datos Personales">
+                            <field name="name"/>
+                            <field name="apellido"/>
+                            <field name="nombre_deportivo"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="edad"/>
+                            <field name="dni"/>
+                        </group>
+                        <group string="Datos de contacto">
+                            <field name="celular"/>
+                            <field name="email"/>
+                        </group>
                     </group>
-                    <group name="name" string="Datos de contacto">
-                        <field name="celular"/>
-                        <field name="email"/>
+                    <group string="Deportivos">
+                        <group string="Datos deportivos">
+                            <field name="posicion"/>
+                            <field name="dorsal"/>
+                            <field name="equipo_simpatizante"/>
+                        </group>
+                        <group string="Datos de la familia">
+                            <field name="name_padre"/>
+                            <field name="telefono_padre"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

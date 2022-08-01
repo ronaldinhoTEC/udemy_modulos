@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form string="Academia">
                 <header>
-                    <h1>Registro de academia</h1>
+                    
                 </header>
                 <sheet>
                     <group name="name" string="Datos de academia">

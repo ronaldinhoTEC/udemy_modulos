@@ -10,6 +10,16 @@ class Ficha(models.Model):
     apellido = fields.Char(string='Apellidos', required=True)
     nombre_deportivo = fields.Char(string='Nombre deportivo')
     fecha_nacimiento = fields.Date(string='Fecha de nacimiento')
+    edad = fields.Integer(string='Edad')
     dni = fields.Char(string='DNI')
-    
+    # datos de contacto
+    celular = fields.Char(string='Celular')
+    email = fields.Char(string='Email')
+    # datos deportivos
+    posicion = fields.Selection(selection=[('arquero','Arquero'),('defensa','Defensa'),('centrocampista','Centrocampista'),('delantero','Delantero')])
+    dorsal = fields.Integer(string='Dorsal')
+    equipo_simpatizante = fields.Char(string='Equipo simpatizante')
+    # datos de la familia
+    name_padre = fields.Char(string='Nombre del padre')
+    telefono_padre = fields.Char(string='Telefono del padre')
     

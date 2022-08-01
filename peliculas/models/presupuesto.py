@@ -70,7 +70,7 @@ class Presupuesto(models.Model):
         
         return super(Presupuesto, self).copy(default)
 
-    @api.onchange('clasificacion'):
+    @api.onchange('clasificacion')
     def _onchange_clasificacion(self):
         if self.clasificacion:
             if self.clasificacion == 'g':

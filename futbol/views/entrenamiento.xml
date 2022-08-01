@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_entrenamiento_form" model="ir.ui.view">
+        <field name="name">view_entrenamiento.form</field>
+        <field name="model">entrenamiento.entrenamiento</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <group name="name" string="Entrenamiento">
+                        <field name="name"/>
+                        <field name="ejercicio"/>
+                        <field name="ejercicio2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_entrenamiento" model="ir.actions.act_window">
+        <field name="name">entrenamiento</field>
+        <field name="res_model">entrenamiento.entrenamiento</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="entrenamiento" name="Entrenamiento" parent="entrenamiento_menu" action="action_open_entrenamiento"/>
+</odoo>

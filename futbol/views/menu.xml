@@ -36,16 +36,11 @@
         <field name="res_model">academia</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <record id="action_open_ficha" model="ir.actions.act_window">
-        <field name="name">Ficha jugador</field>
-        <field name="res_model">ficha.jugador</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+
 
     <menuitem id="menu_principal" name="Academia Futbol" action="action_open_principal"/>
     <menuitem id="jugador_menu" name="Jugador" parent="menu_principal"/>
-    <menuitem id="ficha_jugador" name="jugador item" parent="jugador_menu"/>
-    <menuitem id="entrenador_menu" name="Entrenador" parent="menu_principal"/>
-    <menuitem id="entrenamiento_entrenador" name="Ficha jugador" parent="entrenador_menu" action="action_open_ficha"/>   
+    <menuitem id="entrenador_menu" name="Entrenador" parent="menu_principal"/>   
+    <menuitem id="otros_menu" name="Otros" parent="menu_principal"/>
 
 </odoo>

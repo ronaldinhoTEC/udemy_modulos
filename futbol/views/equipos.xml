@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_equipo_form" model="ir.ui.view">
+        <field name="name">view_equipo.form</field>
+        <field name="model">equipo.equipo</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <h1>equiposs</h1>
+                </header>
+                <sheet>
+                    <group string="Datos de equipo">
+                        <field name="name"/>
+                        <field name="pais"/>
+                        <field name="ciudad"/>
+                        <field name="director_tecnico"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_open_equipo" model="ir.actions.act_window">
+        <field name="name">EquipooO</field>
+        <field name="res_model">equipo.equipo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="otros_equipo" name="Equipos" parent="otros_menu" action="action_open_equipo"/>
+</odoo>

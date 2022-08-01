@@ -18,7 +18,7 @@ class Ficha(models.Model):
     # datos deportivos
     posicion = fields.Selection(selection=[('arquero','Arquero'),('defensa','Defensa'),('centrocampista','Centrocampista'),('delantero','Delantero')])
     dorsal = fields.Integer(string='Dorsal')
-    equipo_simpatizante = fields.Char(string='Equipo simpatizante')
+    equipo_simpatizante = fields.Many2one('equipo.equipo', string='Equipo simpatizante')
     # datos de la familia
     name_padre = fields.Char(string='Nombre del padre')
     telefono_padre = fields.Char(string='Telefono del padre')

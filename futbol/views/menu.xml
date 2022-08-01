@@ -1,15 +1,51 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+    <record id="view_academia_form" model="ir.ui.view">
+        <field name="name">Vista form Academia</field>
+        <field name="model">academia</field>
+        <field name="arch" type="xml">
+            <form string="Academia">
+                <header>
+                    <h1>Registro de academia</h1>
+                </header>
+                <sheet>
+                    <group name="name" string="Datos de academia">
+                        <field name="name"/>
+                        <field name="director_tecnico"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="academia_view_form" model="ir.ui.view">
+        <field name="name">Vista form Academia</field>
+        <field name="model">academia</field>
+        <field name="arch" type="xml">
+            <form string="Form Academia">
+                <sheet>
+                    <group>
+                        <field name="name"/>   
+                        <field name="director_tecnico"/>   
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_principal" model="ir.actions.act_window">
+        <field name="name">Academia</field>
+        <field name="res_model">academia</field>
+        <field name="view_mode">tree,form</field>
+    </record>
     <record id="action_open_ficha" model="ir.actions.act_window">
-        <field name="name">Ficha</field>
+        <field name="name">Ficha jugador</field>
         <field name="res_model">ficha</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_principal" name="Ficha"/>
+    <menuitem id="menu_principal" name="Academia" action="action_open_principal"/>
     <menuitem id="jugador_menu" name="Jugador" parent="menu_principal"/>
-    <menuitem id="ficha_jugador" name="Ficha jugador" parent="jugador_menu"/>
+    <menuitem id="ficha_jugador" name="jugador item" parent="jugador_menu"/>
     <menuitem id="entrenador_menu" name="Entrenador" parent="menu_principal"/>
-    <menuitem id="entrenamiento_entrenador" name="Entrenamiento" parent="entrenador_menu" action="action_open_ficha"/>   
+    <menuitem id="entrenamiento_entrenador" name="Ficha jugador" parent="entrenador_menu" action="action_open_ficha"/>   
 
 </odoo>

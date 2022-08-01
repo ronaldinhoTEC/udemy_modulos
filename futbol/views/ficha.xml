@@ -5,13 +5,15 @@
         <field name="model">ficha</field>
         <field name="arch" type="xml">
             <form>
-                <group string="Datos generales del jugador">
+                <shee string="Datos generales del jugador">
+                    <group string="Datos Personales">
                     <field name="name"/>
                     <field name="apellido"/>
                     <field name="nombre_deportivo"/>
                     <field name="fecha_nacimiento"/>
                     <field name="dni"/>
-                </group>
+                    </group>
+                </shee>
             </form>
         </field>
     </record>

@@ -5,7 +5,7 @@
         <field name="model">ficha</field>
         <field name="arch" type="xml">
             <form>
-                <sheet string="Datos generales">
+                <sheet string="Datos generales del jugador">
                     <field name="name"/>
                     <field name="apellido"/>
                     <field name="nombre_deportivo"/>

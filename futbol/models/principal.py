@@ -1,6 +1,6 @@
 from odoo import   models, fields, api
 
-class Principal(models.AbstractModel):
+class Principal(models.Model):
     
     _name = 'principal'
     _description = 'Esta clase es la vista principal del modulo de futbol'

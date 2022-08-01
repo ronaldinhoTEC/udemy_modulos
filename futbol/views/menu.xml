@@ -2,7 +2,7 @@
 <odoo>
     <record id="view_academia_form" model="ir.ui.view">
         <field name="name">Vista form Academia</field>
-        <field name="model">principal</field>
+        <field name="model">academia</field>
         <field name="arch" type="xml">
             <form string="Academia">
                 <header>
@@ -19,7 +19,7 @@
     </record>
     <record id="academia_view_form" model="ir.ui.view">
         <field name="name">Vista form Academia</field>
-        <field name="model">principal</field>
+        <field name="model">academia</field>
         <field name="arch" type="xml">
             <form string="Form Academia">
                 <sheet>
@@ -33,7 +33,7 @@
     </record>
     <record id="action_open_principal" model="ir.actions.act_window">
         <field name="name">Academia</field>
-        <field name="res_model">principal</field>
+        <field name="res_model">academia</field>
         <field name="view_mode">tree,form</field>
     </record>
     <record id="action_open_ficha" model="ir.actions.act_window">

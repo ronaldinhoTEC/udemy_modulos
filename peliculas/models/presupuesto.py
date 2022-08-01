@@ -63,6 +63,10 @@ class Presupuesto(models.Model):
             
         return super(Presupuesto, self).write(variables)
     
-     
+    def copy(self, default=None):
+        default = dict(default or {})
+        default['name'] = self.name + ' (Copiaa)'
+        
+        return super(Presupuesto, self).copy(default)
 
               

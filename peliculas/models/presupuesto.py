@@ -14,6 +14,7 @@ class Presupuesto(models.Model):
     foto = fields.Binary(string="Foto")
     name = fields.Char(string='Pelicula', required=True)
     clasificacion = fields.Selection(selection=[('g','Publico General'),('PG','Mayores de 18 años'),('PG-13','Mayores de 13 años'),('R','Mayores de 17 años'),('NC-17','Mayores de 18 años'),('R','Se recomienda la compañia de un adulto')])
+    dsc_clasificacion = fields.Char(string='Descripcion de la clasificacion', compute='_onchange_clasificacion')
     fecha_estreno = fields.Date(string='Fecha de estreno')
     puntuacion = fields.Float(string='Puntuacion', related='puntuacion2') # related: Campo para copiar un valor de otro campo de otra tabla (en este caso de la tabla puntuacion2)
     puntuacion2 = fields.Float(string='Puntuacion')
@@ -69,4 +70,24 @@ class Presupuesto(models.Model):
         
         return super(Presupuesto, self).copy(default)
 
-              
+    @api.onchange('clasificacion'):
+    def _onchange_clasificacion(self):
+        if self.clasificacion:
+            if self.clasificacion == 'g':
+                self.dsc_clasificacion = 'Publico General'
+            
+            if self.clasificacion == 'PG':
+                self.dsc_clasificacion = 'Mayores de 18 años'
+            
+            if self.clasificacion == 'PG-13':
+                self.dsc_clasificacion = 'Mayores de 13 años'
+            
+            if self.clasificacion == 'R':
+                self.dsc_clasificacion = 'Mayores de 17 años'
+                
+            if self.clasificacion == 'NC-17':
+                self.dsc_clasificacion = 'Mayores de 18 años'
+                
+        else:
+            self.dsc_clasificacion = False
+                

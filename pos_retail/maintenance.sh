@@ -1,1 +1,0 @@
-cloc --exclude-lang=DTD,Lua,make,Python .

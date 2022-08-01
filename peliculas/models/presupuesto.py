@@ -62,5 +62,7 @@ class Presupuesto(models.Model):
             raise UserError('No puede cambiar la clasificacion de la pelicula')
             
         return super(Presupuesto, self).write(variables)
+    
+     
 
               

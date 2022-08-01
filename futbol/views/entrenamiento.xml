@@ -8,7 +8,7 @@
                 <header>
                 </header>
                 <sheet>
-                    <group name="name" string="Entrenamiento">
+                    <group string="Entrenamiento">
                         <field name="name"/>
                         <field name="ejercicio"/>
                         <field name="ejercicio2"/>
@@ -22,5 +22,5 @@
         <field name="res_model">entrenamiento.entrenamiento</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="entrenamiento" name="Entrenamiento" parent="entrenamiento_menu" action="action_open_entrenamiento"/>
+    <menuitem id="otros_entrenamiento" name="Entrenamiento" parent="otros_menu" action="action_open_entrenamiento"/>
 </odoo>

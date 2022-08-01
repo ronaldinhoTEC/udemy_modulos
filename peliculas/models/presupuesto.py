@@ -55,5 +55,12 @@ class Presupuesto(models.Model):
     def create(self,variables):
         logger.info(f'============> variables: {variables} <============')
         return super(Presupuesto, self).create(variables)
-              
+    
+    def write(self,variables):
+        logger.info(f'============> variables editadas: {variables} <============')
+        if clasificacion in variables:
+            raise UserError('No puede cambiar la clasificacion de la pelicula')
+            
+        return super(Presupuesto, self).write(variables)
+
               

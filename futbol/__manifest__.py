@@ -10,5 +10,6 @@
         'views/ficha.xml',
         'views/equipos.xml',
         'views/jugador.xml',
+        'views/entrenamiento.xml',
     ]
 }

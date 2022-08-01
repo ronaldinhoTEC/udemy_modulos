@@ -70,7 +70,9 @@ class Presupuesto(models.Model):
         
         return super(Presupuesto, self).copy(default)
 
+
     @api.onchange('clasificacion')
+        # Em este decorador se puede agregar mas campos para que se actualicen cuando se cambie el valor de clasificacion	
     def _onchange_clasificacion(self):
         if self.clasificacion:
             if self.clasificacion == 'g':

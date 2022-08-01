@@ -44,8 +44,15 @@ class Presupuesto(models.Model):
         logger.info('============> Presupuesto Cancelado <============')
         self.state = 'cancelado'
         
-              
-              
+    def unlink(self):
+        """Esta funcion permite eliminar un registro de la tabla presupuesto"""
+        
+        if self.state == 'cancelado':
+            super(Presupuesto, self).unlink()
+        
+        else:
+            raise models.ValidationError('No se puede eliminar un presupuesto que no este cancelado')           
+          
               
               
               

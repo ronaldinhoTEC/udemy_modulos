@@ -1,0 +1,68 @@
+table, th, td {
+    border: 1px solid black !important;
+}
+.colfact{
+	margin-top: 5px !important; 
+}
+.font10{
+	font-size: 11px;
+	line-height: 15px;
+}
+.font12{
+	font-size: 12px;
+}
+.font12 .col-xs-2{
+	font-size: 12px !important;
+	font-weight: bold;
+}
+
+/*Estilo del cuadro superior derecho (RUC)*/
+.ruc4{
+    border-radius: 2px;
+    border: 1px solid black;
+    padding: 10px; 
+    width: 180px;
+    height: 110px; 
+}
+.ruc4 p{
+	line-height: 9px;
+}
+
+/*Estilo del cuadro de datos de cliente*/
+.dro4{
+	border: 1px solid black;
+    padding: 4px; 
+    padding-left: 7px !important;
+    margin-top: 7px;   
+}
+
+/*Estilos de pie de pagina*/
+.footer hr{
+    position: relative;
+    display: block;
+    margin: 1em 0;
+    height: 1px;
+    border-top: 1px solid black;
+}
+.footer p{
+    font-size: 11px;
+}
+
+/*Texto - cuadro de terminos y condiciones*/
+.inf_term{
+	font-size: 10px;
+	margin-top: 10px; 
+
+}
+
+/*Estilos del cueadro de cuenta bancaria*/
+.ctbank tbody th{
+	font-size: 11px;
+	font-weight:normal !important;
+	line-height: 0.6 !important;
+}
+.ctbank thead th{
+	font-weight: bold !important;
+	font-size: 12px;
+	line-height: 0.6 !important;
+}

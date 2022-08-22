@@ -1,5 +1,7 @@
 # -*- coding utf-8 -*-
+from locale import currency
 import logging
+from signal import default_int_handler
 from odoo import   models, fields, api
 from odoo.exceptions import UserError
 logger = logging.getLogger(__name__)
@@ -8,9 +10,18 @@ class Presupuesto(models.Model):
     
     _name = 'presupuesto'
     _description = 'Presupuesto de peliculas para alquiler'
-    _inherit = ['image.mixin']
+    _inherit = ['mail.thread','mail.activity.mixin','image.mixin']
     
-    
+    @api.depends('detalle_ids')
+    def _compute_total(self):
+        for record in self:
+            sub_total = 0
+            for linea in record.detalle_ids:
+                sub_total += linea.importe
+            record.base = sub_total
+            record.impuestos = sub_total * 0.18
+            record.total = sub_total + record.impuestos
+            
     foto = fields.Binary(string="Foto")
     name = fields.Char(string='Pelicula', required=True)
     clasificacion = fields.Selection(selection=[('g','Publico General'),('PG','Mayores de 18 años'),('PG-13','Mayores de 13 años'),('R','Mayores de 17 años'),('NC-17','Mayores de 18 años'),('R','Se recomienda la compañia de un adulto')])
@@ -23,6 +34,7 @@ class Presupuesto(models.Model):
     director_id = fields.Many2one('res.partner', string='Director', required=True)
     # VERSION1 :categoria_director_id = fields.Many2one('res.partner.category', string='Categoria del Director', default= lambda self: self.env['res.partner.category'].search([('name','=','Director')]))
     categoria_director_id = fields.Many2one('res.partner.category', string='Categoria del Director', default= lambda self: self.env.ref('peliculas.category_director'))
+    categoria_actor_id = fields.Many2one('res.partner.category', string='Categoria del Actor', default= lambda self: self.env.ref('peliculas.category_actor'))
     
     genero_ids = fields.Many2many('genero',string='Generos')
     vista_general = fields.Text(string='Descripcion')  
@@ -33,6 +45,21 @@ class Presupuesto(models.Model):
     
     state = fields.Selection(selection=[('borrador','Borrador'),('aprobado','Aprobado'),('cancelado','Cancelado')], string='Estado', default='borrador', copy=False)
     fecha_aprobado = fields.Date(string='Fecha de aprobacion', copy=False)
+    num_presupuesto = fields.Char(string='Numero de presupuesto', copy=False)
+    fecha_creacion = fields.Datetime(string='Fecha de creacion',copy=False, default= lambda self: fields.Datetime.now())
+    # actores
+    actor_ids = fields.Many2many('res.partner', string='Actores')
+    opinion = fields.Html(string='Opinion')
+    detalle_ids = fields.One2many('presupuesto.detalle', inverse_name='presupuesto_id', string='Detalle del presupuesto')
+    campos_ocultos = fields.Boolean(string='Campos ocultos', default=False)
+    currency_id = fields.Many2one('res.currency', string='Moneda', default= lambda self: self.env.company.currency_id.id)
+    terminos = fields.Text(string='Terminos y condiciones')
+    base = fields.Monetary(string='Base imponible', compute='_compute_total')
+    impuestos = fields.Monetary(string='Impuesto', compute='_compute_total')
+    total = fields.Monetary(string='Total', compute='_compute_total')
+    
+    # test
+    # serie = fields.Char(string='Serie', related='')
     
     def aprobar_presupuesto(self):
         """Esta funcion cambia el estado del presupuesto a aprobado, usar el self para acceder 
@@ -49,14 +76,18 @@ class Presupuesto(models.Model):
         
     def unlink(self):
         """Esta funcion permite eliminar un registro de la tabla presupuesto"""
-        
-        if self.state != 'cancelado':
-            raise UserError('No puede eliminar un presupuesto que no este cancelado')
-        super(Presupuesto, self).unlink()  
+        for record in self:
+            if record.state != 'cancelado':
+                raise UserError('No puede eliminar un presupuesto que no este cancelado')
+            super(Presupuesto, record).unlink()
+          
     
     @api.model
     def create(self,variables):
         logger.info(f'============> variables: {variables} <============')
+        sequence_obj = self.env['ir.sequence']
+        correlativo = sequence_obj.next_by_code('secuencia.presupuesto.pelicula')
+        variables['num_presupuesto'] = correlativo
         return super(Presupuesto, self).create(variables)
     
     def write(self,variables):
@@ -94,4 +125,31 @@ class Presupuesto(models.Model):
                 
         else:
             self.dsc_clasificacion = False
+                
+class PresupuestoDetalle(models.Model):
+    
+    _name = 'presupuesto.detalle'
+    _description = ''
+
+    presupuesto_id = fields.Many2one('presupuesto', string='Presupuesto')
+    name = fields.Many2one('recurso.cinematografico', string='Recurso')
+    descripcion = fields.Char(string='Descripcion', related='name.descripcion')
+    contacto_id = fields.Many2one('res.partner', string='Contacto', related='name.contacto_id')             
+    imagen = fields.Binary(string='Imagen', related='name.imagen')
+    cantidad = fields.Float(string='Cantidad',default="1",digit=(16,4))
+    precio = fields.Float(string='Precio',digit="Product Price")  
+    importe = fields.Monetary(string='Importe')    
+    
+    currency_id = fields.Many2one('res.currency', string='Moneda'
+                                    ,related='presupuesto_id.currency_id')
+    
+    @api.onchange('name')
+    def _onchange_name(self):
+        if self.name:
+            self.precio = self.name.precio
+            
+    @api.onchange('cantidad','precio')
+    def _onchange_importe(self):
+        if self.cantidad and self.precio:
+            self.importe = self.cantidad * self.precio
                 

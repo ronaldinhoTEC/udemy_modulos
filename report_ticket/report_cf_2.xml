@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record model="report.paperformat" id="paperformat_ticket_report">
+        <field name="name">report_ticket.body_ticket</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">200</field>
+        <field name="page_width">100</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">1</field>
+        <field name="margin_right">3</field>
+        <field name="margin_bottom">1</field>
+        <field name="margin_left">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report id="report_ticket_id"
+            model="account.move"
+            string="Imprimir Ticket"
+            report_type="qweb-pdf"
+            name="report_ticket.body_ticket"
+            file="report_ticket.body_ticket"
+            paperformat="paperformat_ticket_report"
+            menu="True"/>
+
+<template id="body_ticket">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row" style="border-bottom: 3px solid black; padding-bottom: 10px;margin-bottom: 10px;">
+                        <div class="col-4" style="">
+                            <span t-if="o.company_id">
+                                Fecha: <span t-field="o.invoice_date"/>
+                            </span>
+                            <img class="image" t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)" style="width: 100%; text-align:center;"/>
+                        </div>
+                        <div class="col-8" style="margin-left: -5px" t-if="o.company_id">
+                            <h5 style="color: #1E1F22">
+                                <strong style="font-size: 20px"> <span t-field="o.company_id"/><br/></strong>
+                                <strong>RUC:</strong> <span t-field="o.company_id.vat"/><br/>
+                                <strong>Dirección:</strong> <span t-field="o.company_id.street"/> <br/>
+                                <strong>Telefono:</strong>  <span t-field="o.company_id.phone"/> <br/>
+                                <strong>Atención:</strong> <span t-field="o.user_id"/>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="col-6" style="font-size: 16px;" t-field="o.type_document_id"></span>
+                        <span class="col-6" style="font-size: 20px;" t-field="o.ref"></span>
+                        <!-- <span class="col-6" style="border-left: 2px solid black" t-field="o.invoice_date">Fecha: </span> -->
+                    </div>
+                    <h6 style="margin-top: 18px; margin-bottom: -30px; margin-left: 10px; z-index: 10 !important; width: 126px; background-color: black; color: white; padding: 3px">Datos de cliente: </h6>
+                    <div class="row" style="margin-top: 20px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 20px; border: 1.5px solid black ">
+                        <div class="col-4 border-right border-dark" style="text-align: center; padding-top: 10px">
+                            <h6 style="margin-top: 10px">CLIENTE: <span t-field="o.partner_id"/></h6>
+                        </div>
+                        <div class="col-8" style=" font-size: 14px">
+                            <span>Direccion: <span t-field="o.partner_id.street_name"/><span t-field="o.partner_id.l10n_pe_district"/></span><br/>
+                            <span t-if="o.partner_id.l10n_latam_identification_type_id == '6' and o.partner_id.vat">RUC: <span t-field="o.partner_id.vat"></span></span>
+                            <span t-if="o.partner_id.l10n_latam_identification_type_id != '6' and o.partner_id.vat">DNI: <span t-field="o.partner_id.vat"></span></span><br/>
+                            <span>Celular: <span t-field="o.partner_id.mobile"></span></span><br/>
+                            <span>Correo: <span t-field="o.partner_id.email"></span></span><br/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table table-condensed" style="width: 100%; margin-top: 10px">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; background-color: black; color: white">CANT</th>
+                                    <th style="text-align: center; background-color: black; color: white">DESCRIPCION</th>
+                                    <th style="text-align: center; background-color: black; color: white">P.UNIT</th>
+                                    <th style="text-align: center; background-color: black; color: white">IMPORTE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                    <td style="text-align: center"><span t-field="line.quantity"/></td>
+                                    <td style="text-align: center"><span t-field="line.name"/></td>
+                                    <td style="text-align: center"><span t-field="line.price_unit"/></td>
+                                    <td style="text-align: center"><span t-field="line.price_subtotal"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top: 20px; padding-top: 20px; padding-bottom: 20px; margin-bottom: 20px; border-top: 4px solid black; border-bottom: 4px solid black ">
+                        <div class="col-4 border-right border-dark" style="text-align: center;">
+                            <h5 style="">SUBTOTAL<br/><span t-field="o.amount_untaxed"/></h5>
+                        </div>
+                        <div class="col-4 border-right border-dark" style="text-align: center;">
+                            <h5 style="">IMPUESTOS<br/><span t-field="o.amount_tax"/></h5>
+                        </div>
+                        <div class="col-4 text-light bg-dark" style="text-align: center;">
+                            <h5 style="font-size: 23px">TOTAL<br/><span t-field="o.amount_total"/></h5>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><strong>Son: </strong> <br/><span t-field="o.amount_text"/></p>
+                                <p t-if="o.is_cpe"><strong>Resumen: </strong> <br/><span t-field="o.pe_digest"/></p>
+                                <t t-foreach="o.pe_additional_property_ids.filtered(lambda val: val.code != '1000')" t-as="p"><span t-field="p.value"/><br/>
+                                </t>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 text-center" t-if="o.is_cpe" style="padding: 2mm">
+                                    <img t-if="o.sunat_qr_code" t-att-src="'data:image/png;base64,%s' %to_text(o.sunat_qr_code)" class="img-responsive center-block" style="width: 42mm;  height: 42mm;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>
